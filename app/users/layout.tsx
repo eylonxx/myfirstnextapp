@@ -2,9 +2,6 @@ import React from 'react';
 import UsersComponent from './users';
 
 const UsersLayout = ({ children }: { children: any }) => {
-  {
-    console.log('here');
-  }
   return (
     <section className="flex">
       <aside className="w-1/4">
