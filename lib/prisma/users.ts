@@ -1,10 +1,14 @@
 import prisma from '.';
 
 export async function getUsers() {
+  console.log('calling getusers');
+
   try {
     const users = await prisma.user.findMany();
+    console.log(users);
+
     return { users };
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
     return { error };
   }
@@ -13,7 +17,7 @@ export async function createUser(user: any) {
   try {
     const userFromDB = await prisma.user.create({ data: user });
     return { user: userFromDB };
-  } catch (error) {
+  } catch (error: any) {
     return { error };
   }
 }
@@ -24,7 +28,7 @@ export async function getUserById(id: string) {
       where: { id },
     });
     return { user };
-  } catch (error) {
+  } catch (error: any) {
     return { error };
   }
 }
