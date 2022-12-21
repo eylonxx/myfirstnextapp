@@ -3,9 +3,13 @@ import type { AppProps } from 'next/app';
 
 import React, { ReactElement } from 'react';
 import { getUsers } from '../../lib/prisma/users';
+import { user } from '@prisma/client';
 
 const UsersComponent = async (): Promise<JSX.Element> => {
-  const { users } = await getUsers();
+  const res = await fetch('http://localhost:3000/api/user', {
+    method: 'GET',
+  });
+  const users = await res.json();
 
   return (
     <section className="fixed h-full w-1/4 bg-slate-800">

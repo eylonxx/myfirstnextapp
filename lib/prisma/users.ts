@@ -4,10 +4,10 @@ export async function getUsers() {
   try {
     const users = await prisma.user.findMany();
     console.log(users);
-    return { users };
+    return users;
   } catch (error: any) {
     console.log(error);
-    return { error };
+    return error;
   }
 }
 
